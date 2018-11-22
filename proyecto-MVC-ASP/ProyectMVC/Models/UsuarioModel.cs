@@ -12,7 +12,7 @@ namespace ProyectMVC.Models
         public string Apellido { get; set; }
         public string Correo { get; set; }
         public string Contrasenna { get; set; }
-        public char Activo { get; set; }
+        public bool Activo { get; set; }
         public bool Admin { get; set; }
     
 

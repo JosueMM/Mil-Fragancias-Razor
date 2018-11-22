@@ -54,7 +54,7 @@ namespace ProyectMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,telefono,PuestoTrabajo,privilegios,cedula,contrasena")] UsuarioModel usuarioModel)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Correo,Contrasenna,Activo,Admin")] UsuarioModel usuarioModel)
         {
             if (ModelState.IsValid)
             {
