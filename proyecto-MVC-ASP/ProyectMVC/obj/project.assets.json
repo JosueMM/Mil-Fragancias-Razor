@@ -13508,11 +13508,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\roke1\\Desktop\\JakaDesign\\A\\proyecto-MVC-ASP\\ProyectMVC\\ProyectMVC.csproj",
+      "projectUniqueName": "C:\\Users\\roke1\\Desktop\\JakaDesign\\Allan2\\Mil-Fragancias-Razor\\proyecto-MVC-ASP\\ProyectMVC\\ProyectMVC.csproj",
       "projectName": "ProyectMVC",
-      "projectPath": "C:\\Users\\roke1\\Desktop\\JakaDesign\\A\\proyecto-MVC-ASP\\ProyectMVC\\ProyectMVC.csproj",
+      "projectPath": "C:\\Users\\roke1\\Desktop\\JakaDesign\\Allan2\\Mil-Fragancias-Razor\\proyecto-MVC-ASP\\ProyectMVC\\ProyectMVC.csproj",
       "packagesPath": "C:\\Users\\roke1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\roke1\\Desktop\\JakaDesign\\A\\proyecto-MVC-ASP\\ProyectMVC\\obj\\",
+      "outputPath": "C:\\Users\\roke1\\Desktop\\JakaDesign\\Allan2\\Mil-Fragancias-Razor\\proyecto-MVC-ASP\\ProyectMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

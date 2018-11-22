@@ -31,3 +31,14 @@ C:\Users\roke1\Desktop\JakaDesign\A\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcor
 C:\Users\roke1\Desktop\JakaDesign\A\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.AssemblyInfo.cs
 C:\Users\roke1\Desktop\JakaDesign\A\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.dll
 C:\Users\roke1\Desktop\JakaDesign\A\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.pdb
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\bin\Debug\netcoreapp2.0\ProyectMVC.deps.json
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\bin\Debug\netcoreapp2.0\ProyectMVC.runtimeconfig.json
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\bin\Debug\netcoreapp2.0\ProyectMVC.runtimeconfig.dev.json
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\bin\Debug\netcoreapp2.0\ProyectMVC.dll
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\bin\Debug\netcoreapp2.0\ProyectMVC.pdb
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.csprojAssemblyReference.cache
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.csproj.CoreCompileInputs.cache
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.AssemblyInfoInputs.cache
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.AssemblyInfo.cs
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.dll
+C:\Users\roke1\Desktop\JakaDesign\Allan2\Mil-Fragancias-Razor\proyecto-MVC-ASP\ProyectMVC\obj\Debug\netcoreapp2.0\ProyectMVC.pdb
