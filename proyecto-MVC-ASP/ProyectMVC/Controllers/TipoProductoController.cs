@@ -21,8 +21,8 @@ namespace ProyectMVC.Controllers
         // GET: Sector
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TipoProducto.ToListAsync());
-        }
+var proyectMVCContext = _context.TipoProducto.Include(r => r.Producto).Include(r => r.Usuario);
+            return View(await proyectMVCContext.ToListAsync());        }
 
         // GET: Sector/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -32,14 +32,16 @@ namespace ProyectMVC.Controllers
                 return NotFound();
             }
 
-            var sectorModel = await _context.TipoProducto
+            var tipoProductoModel = await _context.TipoProducto
+               .Include(r => r.Producto)
+                .Include(r => r.Usuario)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (sectorModel == null)
+            if (tipoProductoModel == null)
             {
                 return NotFound();
             }
 
-            return View(sectorModel);
+            return View(tipoProductoModel);
         }
 
         // GET: Sector/Create
@@ -53,15 +55,18 @@ namespace ProyectMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre")] TipoProductoModel sectorModel)
+        public async Task<IActionResult> Create([Bind("Id,UsuarioId,ProductoId,Cantidad,Precio")] TipoProductoModel tipoProductoModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(sectorModel);
+                _context.Add(tipoProductoModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(sectorModel);
+            ViewData["ProductoId"] = new SelectList(_context.TipoProducto, "Id", "Nombre", tipoProductoModel.ProductoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre", tipoProductoModel.UsuarioId);
+            
+            return View(tipoProductoModel);
         }
 
         // GET: Sector/Edit/5
@@ -72,12 +77,14 @@ namespace ProyectMVC.Controllers
                 return NotFound();
             }
 
-            var sectorModel = await _context.TipoProducto.SingleOrDefaultAsync(m => m.Id == id);
-            if (sectorModel == null)
+            var tipoProductoModel = await _context.TipoProducto.SingleOrDefaultAsync(m => m.Id == id);
+            if (tipoProductoModel == null)
             {
                 return NotFound();
             }
-            return View(sectorModel);
+             ViewData["ProductoId"] = new SelectList(_context.TipoProducto, "Id", "Precio", tipoProductoModel.ProductoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre", tipoProductoModel.UsuarioId);
+            return View(tipoProductoModel);
         }
 
         // POST: Sector/Edit/5
@@ -85,9 +92,9 @@ namespace ProyectMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre")] TipoProductoModel sectorModel)
+        public async Task<IActionResult> Edit(int id,[Bind("Id,UsuarioId,ProductoId,Cantidad,Precio")] TipoProductoModel tipoProductoModel)
         {
-            if (id != sectorModel.Id)
+            if (id != tipoProductoModel.Id)
             {
                 return NotFound();
             }
@@ -96,12 +103,12 @@ namespace ProyectMVC.Controllers
             {
                 try
                 {
-                    _context.Update(sectorModel);
+                    _context.Update(tipoProductoModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SectorModelExists(sectorModel.Id))
+                    if (!TipoProductoModelExists(tipoProductoModel.Id))
                     {
                         return NotFound();
                     }
@@ -112,7 +119,7 @@ namespace ProyectMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(sectorModel);
+            return View(tipoProductoModel);
         }
 
         // GET: Sector/Delete/5
@@ -144,7 +151,7 @@ namespace ProyectMVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SectorModelExists(int id)
+        private bool TipoProductoModelExists(int id)
         {
             return _context.TipoProducto.Any(e => e.Id == id);
         }
