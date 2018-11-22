@@ -21,7 +21,7 @@ namespace ProyectMVC.Controllers
         // GET: Reunion
         public async Task<IActionResult> Index()
         {
-            var proyectMVCContext = _context.Producto.Include(r => r.Nombre).Include(r => r.Tipo);
+            var proyectMVCContext = _context.Producto.Include(r => r.Tipo).Include(r => r.Imagen);
             return View(await proyectMVCContext.ToListAsync());
         }
 
@@ -33,23 +33,23 @@ namespace ProyectMVC.Controllers
                 return NotFound();
             }
 
-            var reunionModel = await _context.Producto
-                .Include(r => r.Nombre)
+            var productoModel = await _context.Producto
                 .Include(r => r.Tipo)
+                .Include(r => r.Imagen)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (reunionModel == null)
+            if (productoModel == null)
             {
                 return NotFound();
             }
 
-            return View(reunionModel);
+            return View(productoModel);
         }
 
         // GET: Reunion/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Producto, "Id", "Nombre");
-            ViewData["UsuarioId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre");
+            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "Id", "Nombre");
+            ViewData["ImagenId"] = new SelectList(_context.Imagen, "Id", "ImagenArray");
             return View();
         }
 
@@ -58,17 +58,17 @@ namespace ProyectMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Dia,UsuarioId,presencial,ClienteId")] ProductoModel reunionModel)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Cantidad,Precio,Activo,TipoProductoId,ImagenId")] ProductoModel productoModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(reunionModel);
+                _context.Add(productoModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Producto, "Id", "Nombre", reunionModel.TipoProductoId);
-           // ViewData["UsuarioId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre", reunionModel.UsuarioId);
-            return View(reunionModel);
+            ViewData["TipoProductoId"] = new SelectList(_context.Producto, "Id", "Precio", productoModel.TipoProductoId);
+            ViewData["ImagenId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre", productoModel.ImagenId);
+            return View(productoModel);
         }
 
         // GET: Reunion/Edit/5
@@ -79,14 +79,14 @@ namespace ProyectMVC.Controllers
                 return NotFound();
             }
 
-            var reunionModel = await _context.Producto.SingleOrDefaultAsync(m => m.Id == id);
-            if (reunionModel == null)
+            var productoModel = await _context.Producto.SingleOrDefaultAsync(m => m.Id == id);
+            if (productoModel == null)
             {
                 return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Producto, "Id", "Nombre", reunionModel.TipoProductoId);
-           // ViewData["UsuarioId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre", reunionModel.UsuarioId);
-            return View(reunionModel);
+            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "Id", "Precio", productoModel.TipoProductoId);
+            ViewData["ImagenId"] = new SelectList(_context.Imagen, "Id", "Nombre", productoModel.ImagenId);
+            return View(productoModel);
         }
 
         // POST: Reunion/Edit/5
@@ -94,36 +94,22 @@ namespace ProyectMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Dia,UsuarioId,presencial,ClienteId")] TipoProductoModel reunionModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Cantidad,Precio,Activo,TipoProductoId,ImagenId")] TipoProductoModel productoModel)
         {
-            if (id != reunionModel.Id)
+           
+            if (id == null)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            var tipoProductoModel = await _context.TipoProducto.SingleOrDefaultAsync(m => m.Id == id);
+            if (tipoProductoModel == null)
             {
-                try
-                {
-                    _context.Update(reunionModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ReunionModelExists(reunionModel.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Producto, "Id", "Nombre", reunionModel.ProductoId);
-          //  ViewData["UsuarioId"] = new SelectList(_context.Set<UsuarioModel>(), "Id", "Nombre", reunionModel.UsuarioId);
-            return View(reunionModel);
+             ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "Id", "Precio", productoModel.Id);
+            ViewData["ImagenId"] = new SelectList(_context.Imagen, "Id", "Nombre", productoModel.Id);
+            return View(tipoProductoModel);
         }
 
         // GET: Reunion/Delete/5
@@ -134,16 +120,16 @@ namespace ProyectMVC.Controllers
                 return NotFound();
             }
 
-            var reunionModel = await _context.Producto
-                .Include(r => r.Nombre)
+            var productoModel = await _context.Producto
                 .Include(r => r.Tipo)
+                .Include(r => r.Imagen)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (reunionModel == null)
+            if (productoModel == null)
             {
                 return NotFound();
             }
 
-            return View(reunionModel);
+            return View(productoModel);
         }
 
         // POST: Reunion/Delete/5
@@ -151,13 +137,13 @@ namespace ProyectMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var reunionModel = await _context.Producto.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Producto.Remove(reunionModel);
+            var productoModel = await _context.Producto.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Producto.Remove(productoModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReunionModelExists(int id)
+        private bool ProductoModelExists(int id)
         {
             return _context.Producto.Any(e => e.Id == id);
         }
