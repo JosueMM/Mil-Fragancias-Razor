@@ -18,6 +18,6 @@ namespace MiFragancia.Models
         public DbSet<Models.Imagen> Imagen { get; set; }
         public DbSet<Models.TipoProducto> TipoProducto { get; set; }
         public DbSet<MiFragancia.Models.Producto> Producto { get; set; }
-        public DbSet<MiFragancia.Models.Usuario> UsuarioModel { get; set; }
+        public DbSet<MiFragancia.Models.UsuarioModel> Usuario { get; set; }
     }
 }

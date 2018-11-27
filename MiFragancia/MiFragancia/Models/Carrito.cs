@@ -14,7 +14,7 @@ namespace MiFragancia.Models
 
         public int UsuarioId { get; set; }
         [ForeignKey("UsuarioId ")]
-        public virtual Usuario Usuario { get; set; }
+        public virtual UsuarioModel Usuario { get; set; }
        
         public int TipoProductoId { get; set; }
         [ForeignKey("TipoProductoId ")]

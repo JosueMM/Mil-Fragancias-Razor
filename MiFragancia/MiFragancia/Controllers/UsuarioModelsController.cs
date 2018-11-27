@@ -9,22 +9,22 @@ using MiFragancia.Models;
 
 namespace MiFragancia.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuarioModelsController : Controller
     {
         private readonly FraganciaContext _context;
 
-        public UsuariosController(FraganciaContext context)
+        public UsuarioModelsController(FraganciaContext context)
         {
             _context = context;
         }
 
-        // GET: Usuarios
+        // GET: UsuarioModels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.UsuarioModel.ToListAsync());
+            return View(await _context.Usuario.ToListAsync());
         }
 
-        // GET: Usuarios/Details/5
+        // GET: UsuarioModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.UsuarioModel
+            var usuarioModel = await _context.Usuario
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (usuario == null)
+            if (usuarioModel == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(usuarioModel);
         }
 
-        // GET: Usuarios/Create
+        // GET: UsuarioModels/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: UsuarioModels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nombre,Apellido,Correo,Contrasenna,Activo,Admin")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("ID,Nombre,Usuario,Correo,Contrasenna,Activo,Admin")] UsuarioModel usuarioModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
+                _context.Add(usuarioModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(usuarioModel);
         }
 
-        // GET: Usuarios/Edit/5
+        // GET: UsuarioModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.UsuarioModel.FindAsync(id);
-            if (usuario == null)
+            var usuarioModel = await _context.Usuario.FindAsync(id);
+            if (usuarioModel == null)
             {
                 return NotFound();
             }
-            return View(usuario);
+            return View(usuarioModel);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: UsuarioModels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,Apellido,Correo,Contrasenna,Activo,Admin")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,Usuario,Correo,Contrasenna,Activo,Admin")] UsuarioModel usuarioModel)
         {
-            if (id != usuario.ID)
+            if (id != usuarioModel.ID)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace MiFragancia.Controllers
             {
                 try
                 {
-                    _context.Update(usuario);
+                    _context.Update(usuarioModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.ID))
+                    if (!UsuarioModelExists(usuarioModel.ID))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace MiFragancia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(usuarioModel);
         }
 
-        // GET: Usuarios/Delete/5
+        // GET: UsuarioModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.UsuarioModel
+            var usuarioModel = await _context.Usuario
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (usuario == null)
+            if (usuarioModel == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(usuarioModel);
         }
 
-        // POST: Usuarios/Delete/5
+        // POST: UsuarioModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = await _context.UsuarioModel.FindAsync(id);
-            _context.UsuarioModel.Remove(usuario);
+            var usuarioModel = await _context.Usuario.FindAsync(id);
+            _context.Usuario.Remove(usuarioModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UsuarioExists(int id)
+        private bool UsuarioModelExists(int id)
         {
-            return _context.UsuarioModel.Any(e => e.ID == id);
+            return _context.Usuario.Any(e => e.ID == id);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace MiFragancia.Controllers
         public IActionResult Create()
         {
             ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID");
-            ViewData["UsuarioId"] = new SelectList(_context.UsuarioModel, "ID", "ID");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace MiFragancia.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", carrito.TipoProductoId);
-            ViewData["UsuarioId"] = new SelectList(_context.UsuarioModel, "ID", "ID", carrito.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", carrito.UsuarioId);
             return View(carrito);
         }
 
@@ -85,7 +85,7 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
             ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", carrito.TipoProductoId);
-            ViewData["UsuarioId"] = new SelectList(_context.UsuarioModel, "ID", "ID", carrito.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", carrito.UsuarioId);
             return View(carrito);
         }
 
@@ -122,7 +122,7 @@ namespace MiFragancia.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", carrito.TipoProductoId);
-            ViewData["UsuarioId"] = new SelectList(_context.UsuarioModel, "ID", "ID", carrito.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", carrito.UsuarioId);
             return View(carrito);
         }
 

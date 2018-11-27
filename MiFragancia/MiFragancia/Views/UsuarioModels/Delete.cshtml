@@ -1,4 +1,4 @@
-﻿@model MiFragancia.Models.Usuario
+﻿@model MiFragancia.Models.UsuarioModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -8,7 +8,7 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Usuario</h4>
+    <h4>UsuarioModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -18,10 +18,10 @@
             @Html.DisplayFor(model => model.Nombre)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Apellido)
+            @Html.DisplayNameFor(model => model.Usuario)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Apellido)
+            @Html.DisplayFor(model => model.Usuario)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Correo)
