@@ -12,10 +12,23 @@ namespace MiFragancia.Controllers
     public class ProductosController : Controller
     {
         private readonly FraganciaContext _context;
+        public IList<Producto> carrito;
+        public IList<Producto> select;
 
         public ProductosController(FraganciaContext context)
         {
             _context = context;
+        }
+
+        public async Task AddCarritoAsync(int id)
+        {
+         
+            var producto = await _context.Producto
+                .Include(p => p.Imagen)
+                .Include(p => p.Tipo)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+                carrito.Add(producto);
         }
 
         // GET: Productos
