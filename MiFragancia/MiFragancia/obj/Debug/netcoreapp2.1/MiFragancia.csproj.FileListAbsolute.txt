@@ -102,11 +102,6 @@ C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\TipoProductoes\Details.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\TipoProductoes\Edit.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\TipoProductoes\Index.g.cshtml.cs
-C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Create.g.cshtml.cs
-C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Delete.g.cshtml.cs
-C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Details.g.cshtml.cs
-C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Edit.g.cshtml.cs
-C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Index.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Imagens\Create.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Imagens\Delete.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Imagens\Details.g.cshtml.cs
