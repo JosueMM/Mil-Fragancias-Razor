@@ -10,8 +10,13 @@ namespace MiFragancia.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly FraganciaContext _context;
+ 
+
+
         public IActionResult Index()
         {
+            ViewData["alert"] = "Introduzca sus credenciales";
             return View();
         }
 
@@ -33,6 +38,8 @@ namespace MiFragancia.Controllers
         {
             return View();
         }
+
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

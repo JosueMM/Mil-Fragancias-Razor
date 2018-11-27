@@ -112,3 +112,4 @@ C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Details.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Edit.g.cshtml.cs
 C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\Productos\Index.g.cshtml.cs
+C:\Users\Usuario\Desktop\Mil-Fragancias-Razor\MiFragancia\MiFragancia\obj\Debug\netcoreapp2.1\Razor\Views\UsuarioModels\Login.g.cshtml.cs

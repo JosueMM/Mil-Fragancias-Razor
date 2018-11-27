@@ -1,8 +1,12 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Login";
 
-    
+    ViewData["alert"] = "Ingrese sus credenciales";
+
+
 }
+
 
 <body id="LoginForm">
     <div class="container">
@@ -13,18 +17,19 @@
                     <h2>Login</h2>
                     <p>Mi Fragancia, El olor de los sueños! </p>
                 </div>
-                <form id="Login" method="POST" asp-action="LoginAsync">
+                <form id="Login" method="POST" asp-action="Login">
+                    <span id="reauth-email" class="reauth-email"></span>
                     <div class="form-group">
                         <label>@ViewData["alert"]</label>
-                        <input asp-for=@ViewData["email"] class="form-control" id="inputEmail" placeholder="Email">
+                        <input name="email"  class="form-control" id="inputEmail" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input asp-for=@ViewData["pass"] class="form-control" id="inputPassword" placeholder="Contraseña">
+                        <input name="pass" class="form-control" id="inputPassword" placeholder="Contraseña">
                     </div>
                     <div class="forgot">
-                        
+
                     </div>
-                    <button type="submit" value="Login" asp-controller="Home" asp-action="LoginAsync"  class="btn btn-primary">Login</button>
+                    <button type="submit" value="Login" asp-controller="UsuarioModels" asp-action="Login" class="btn btn-primary">Login</button>
                 </form>
             </div>
             <p class="botto-text"> Designed by MiFragancia</p>
