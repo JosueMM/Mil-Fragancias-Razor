@@ -1,1 +1,217 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Tienda";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="cars-horizon">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row py-2">
+                    <div class="col-md-7 car-image-block">
+                        <h3> Mil Fragancias</h3>
+                    </div>
+
+                    <button type="button" class="btn btn-info " data-toggle="modal" data-target=".registro">	Carrito</button>
+                    <div class="col-md-2 pt-1">
+                        <a href="#"><i class="fa fa-th fa-2x pr-2"></i> </a>
+                        <a href="#"><i class="fa fa-list-ul fa-2x"></i> </a>
+
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-3 border">
+
+                    <div class="col-md-4 car-image-block">
+                        <a href="#"><img src="http://www.elolfatista.com/wp-content/uploads/2012/07/colonias-y-perfumes-23.jpg"></a>
+                    </div>
+                    <div class="col-md-8 card-body ">
+                        <a href="#"><h3>Dino</h3> </a>
+
+                        <h5>50,000</h5>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">350Oz</li>
+                            <li class="list-inline-item">Femenino</li>
+                            <li class="list-inline-item">Stok</li>
+                        </ul>
+                        <button type="button" class="btn btn-outline-danger">Añadir al carrito</button>
+                    </div>
+
+                </div><br>
+                <div class="row mt-3 border">
+
+                    <div class="col-md-4 car-image-block">
+                        <a href="#"><img src="https://fimgs.net/images/perfume/375x500.10625.jpg"></a>
+                    </div>
+                    <div class="col-md-8 card-body ">
+                        <a href="#"><h3>Antonio Miro</h3> </a>
+
+                        <h5>30,000</h5>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">350Oz</li>
+                            <li class="list-inline-item">Masculino</li>
+                            <li class="list-inline-item">Stok</li>
+                        </ul>
+                        <button type="button" class="btn btn-outline-danger">Añadir al carrito</button>
+                    </div>
+
+                </div><br>
+                <div class="row mt-3 border">
+
+                    <div class="col-md-4 car-image-block">
+                        <a href="#"><img src="https://fimgs.net/images/perfume/375x500.10625.jpg"></a>
+                    </div>
+                    <div class="col-md-8 card-body ">
+                        <a href="#"><h3>Antonio Miro</h3> </a>
+
+                        <h5>30,000</h5>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">350Oz</li>
+                            <li class="list-inline-item">Masculino</li>
+                            <li class="list-inline-item">Stok</li>
+                        </ul>
+                        <button type="button" class="btn btn-outline-danger">Añadir al carrito</button>
+                    </div>
+
+                </div><br>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade registro" id="myModall" role="dialog">
+    <div class="modal-dialog ">
+
+        <!-- Modal content-->
+        <div class="modal-content col-sm-12 col-md-12">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Carrito</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Product</th>
+                                                            <th>Quantity</th>
+                                                            <th class="text-center">Price</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th> </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="col-sm-8 col-md-6">
+                                                                <div class="media">
+                                                                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                                                                    <div class="media-body">
+                                                                        <h4 class="media-heading"><a href="#">Product name</a></h4>
+                                                                        <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                                                                        <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="col-sm-1 col-md-1" style="text-align: center">
+                                                                <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+                                                            </td>
+                                                            <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
+                                                            <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                                                            <td class="col-sm-1 col-md-1">
+                                                                <button type="button" class="btn btn-danger">
+                                                                    <span class="glyphicon glyphicon-remove"></span> Remove
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="col-md-6">
+                                                                <div class="media">
+                                                                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                                                                    <div class="media-body">
+                                                                        <h4 class="media-heading"><a href="#">Product name</a></h4>
+                                                                        <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                                                                        <span>Status: </span><span class="text-warning"><strong>Leaves warehouse in 2 - 3 weeks</strong></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="col-md-1" style="text-align: center">
+                                                                <input type="email" class="form-control" id="exampleInputEmail1" value="2">
+                                                            </td>
+                                                            <td class="col-md-1 text-center"><strong>$4.99</strong></td>
+                                                            <td class="col-md-1 text-center"><strong>$9.98</strong></td>
+                                                            <td class="col-md-1">
+                                                                <button type="button" class="btn btn-danger">
+                                                                    <span class="glyphicon glyphicon-remove"></span> Remove
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td><h5>Subtotal</h5></td>
+                                                            <td class="text-right"><h5><strong>$24.59</strong></h5></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td><h5>Estimated shipping</h5></td>
+                                                            <td class="text-right"><h5><strong>$6.94</strong></h5></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td><h3>Total</h3></td>
+                                                            <td class="text-right"><h3><strong>$31.53</strong></h3></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td>   </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-default">
+                                                                    <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                                                                </button>
+                                                            </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-success">
+                                                                    Checkout <span class="glyphicon glyphicon-play"></span>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
