@@ -77,7 +77,7 @@ using MiFragancia.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(106, 1254, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "769ac322e1ae4cf8a6c3dd7cae712718", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "328a1105282546a1ba6077018a3e875e", async() => {
                 BeginContext(127, 320, true);
                 WriteLiteral(@"
     <div class=""container"">
@@ -91,7 +91,7 @@ using MiFragancia.Models;
                 ");
                 EndContext();
                 BeginContext(447, 788, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2386ee52ec7f4fee850150b7e8865cc0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9df1512466f4b7e9a0c8c0c42a0f813", async() => {
                     BeginContext(497, 153, true);
                     WriteLiteral("\r\n                    <span id=\"reauth-email\" class=\"reauth-email\"></span>\r\n                    <div class=\"form-group\">\r\n                        <label>");
                     EndContext();
@@ -115,7 +115,7 @@ using MiFragancia.Models;
                     ");
                     EndContext();
                     BeginContext(1086, 124, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "924783696aa9485ab66450bad123e15a", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16e29ed1d4684f2db8c08180fbc687b2", async() => {
                         BeginContext(1196, 5, true);
                         WriteLiteral("Login");
                         EndContext();
