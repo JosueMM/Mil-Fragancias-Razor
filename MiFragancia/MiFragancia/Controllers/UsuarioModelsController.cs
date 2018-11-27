@@ -12,16 +12,49 @@ namespace MiFragancia.Controllers
     public class UsuarioModelsController : Controller
     {
         private readonly FraganciaContext _context;
+        private string pass;
+        private string email;
 
         public UsuarioModelsController(FraganciaContext context)
         {
             _context = context;
+            email = "";
+            pass = "";
         }
 
         // GET: UsuarioModels
         public async Task<IActionResult> Index()
         {
             return View(await _context.Usuario.ToListAsync());
+        }
+
+        public async Task<IActionResult> Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(UsuarioModel usuarios , string pass , string email)
+        {
+            usuarios.Contrasenna = pass;
+            usuarios.Correo = email;
+
+            var usuario = await _context.Usuario
+            .SingleOrDefaultAsync(m => m.Correo == usuarios.Correo && m
+            .Contrasenna == usuarios.Contrasenna);
+
+
+            if (usuario == null)
+            {
+                ViewData["alert"] = "Credenciales incorrectos";
+                return RedirectToAction("Login", "UsuarioModels");
+                
+            }
+            ViewData["alert"] = "Credenciales correctos";
+
+            return RedirectToAction("Index", "Productos"); 
+  
+
         }
 
         // GET: UsuarioModels/Details/5
