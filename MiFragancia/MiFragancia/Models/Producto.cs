@@ -15,7 +15,7 @@ namespace MiFragancia.Models
         public string Descripcion { get; set; }
         public int Cantidad { get; set; }
         public float Precio { get; set; }
-        public char Activo { get; set; }
+        public bool Activo { get; set; }
         public int TipoProductoId { get; set; }
         [ForeignKey("TipoProductoId ")]
 
