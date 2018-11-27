@@ -32,14 +32,14 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
 
-            var imagen = await _context.Imagen
+            var imagens = await _context.Imagen
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (imagen == null)
+            if (imagens == null)
             {
                 return NotFound();
             }
 
-            return View(imagen);
+            return View(imagens);
         }
 
         // GET: Imagens/Create
@@ -53,15 +53,15 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,ImagenArray,Activo")] Imagen imagen)
+        public async Task<IActionResult> Create([Bind("ID,Imagen,Activo")] Imagens imagens)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(imagen);
+                _context.Add(imagens);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(imagen);
+            return View(imagens);
         }
 
         // GET: Imagens/Edit/5
@@ -72,12 +72,12 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
 
-            var imagen = await _context.Imagen.FindAsync(id);
-            if (imagen == null)
+            var imagens = await _context.Imagen.FindAsync(id);
+            if (imagens == null)
             {
                 return NotFound();
             }
-            return View(imagen);
+            return View(imagens);
         }
 
         // POST: Imagens/Edit/5
@@ -85,9 +85,9 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,ImagenArray,Activo")] Imagen imagen)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Imagen,Activo")] Imagens imagens)
         {
-            if (id != imagen.ID)
+            if (id != imagens.ID)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace MiFragancia.Controllers
             {
                 try
                 {
-                    _context.Update(imagen);
+                    _context.Update(imagens);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ImagenExists(imagen.ID))
+                    if (!ImagensExists(imagens.ID))
                     {
                         return NotFound();
                     }
@@ -112,7 +112,7 @@ namespace MiFragancia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(imagen);
+            return View(imagens);
         }
 
         // GET: Imagens/Delete/5
@@ -123,14 +123,14 @@ namespace MiFragancia.Controllers
                 return NotFound();
             }
 
-            var imagen = await _context.Imagen
+            var imagens = await _context.Imagen
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (imagen == null)
+            if (imagens == null)
             {
                 return NotFound();
             }
 
-            return View(imagen);
+            return View(imagens);
         }
 
         // POST: Imagens/Delete/5
@@ -138,13 +138,13 @@ namespace MiFragancia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var imagen = await _context.Imagen.FindAsync(id);
-            _context.Imagen.Remove(imagen);
+            var imagens = await _context.Imagen.FindAsync(id);
+            _context.Imagen.Remove(imagens);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ImagenExists(int id)
+        private bool ImagensExists(int id)
         {
             return _context.Imagen.Any(e => e.ID == id);
         }

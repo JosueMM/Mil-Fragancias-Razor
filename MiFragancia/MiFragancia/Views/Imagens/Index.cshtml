@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MiFragancia.Models.Imagen>
+﻿@model IEnumerable<MiFragancia.Models.Imagens>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ImagenArray)
+                @Html.DisplayNameFor(model => model.Imagen)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Activo)
@@ -25,7 +25,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ImagenArray)
+                @Html.DisplayFor(modelItem => item.Imagen)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Activo)
