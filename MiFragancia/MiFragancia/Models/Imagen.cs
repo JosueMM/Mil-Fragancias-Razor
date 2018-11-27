@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MiFragancia.Models
 {
-    public class Imagen
+    public class Imagens
     {
         [Key]
         public int ID { get; set; }
-        public byte[] ImagenArray { get; set; }
+        public byte[] Imagen { get; set; }
         public char Activo { get; set; }
     }
 }

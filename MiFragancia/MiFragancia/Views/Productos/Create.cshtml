@@ -1,18 +1,17 @@
 ﻿@model MiFragancia.Models.Producto
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h2>Edit</h2>
+<h2>Create</h2>
 
 <h4>Producto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
                 <input asp-for="Nombre" class="form-control" />
@@ -34,22 +33,22 @@
                 <span asp-validation-for="Precio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Activo" class="control-label"></label>
-                <input asp-for="Activo" class="form-control" />
-                <span asp-validation-for="Activo" class="text-danger"></span>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
+                    </label>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="TipoProductoId" class="control-label"></label>
-                <select asp-for="TipoProductoId" class="form-control" asp-items="ViewBag.TipoProductoId"></select>
-                <span asp-validation-for="TipoProductoId" class="text-danger"></span>
+                <select asp-for="TipoProductoId" class ="form-control" asp-items="ViewBag.TipoProductoId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ImagenId" class="control-label"></label>
-                <select asp-for="ImagenId" class="form-control" asp-items="ViewBag.ImagenId"></select>
-                <span asp-validation-for="ImagenId" class="text-danger"></span>
+                <select asp-for="ImagenId" class ="form-control" asp-items="ViewBag.ImagenId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>

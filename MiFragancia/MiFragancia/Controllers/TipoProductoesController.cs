@@ -21,8 +21,7 @@ namespace MiFragancia.Controllers
         // GET: TipoProductoes
         public async Task<IActionResult> Index()
         {
-            var fraganciaContext = _context.TipoProducto.Include(t => t.Producto).Include(t => t.Usuario);
-            return View(await fraganciaContext.ToListAsync());
+            return View(await _context.TipoProducto.ToListAsync());
         }
 
         // GET: TipoProductoes/Details/5
@@ -34,8 +33,6 @@ namespace MiFragancia.Controllers
             }
 
             var tipoProducto = await _context.TipoProducto
-                .Include(t => t.Producto)
-                .Include(t => t.Usuario)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (tipoProducto == null)
             {
@@ -48,8 +45,6 @@ namespace MiFragancia.Controllers
         // GET: TipoProductoes/Create
         public IActionResult Create()
         {
-            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID");
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID");
             return View();
         }
 
@@ -58,7 +53,7 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UsuarioId,ProductoId,Cantidad,Precio")] TipoProducto tipoProducto)
+        public async Task<IActionResult> Create([Bind("ID,Tipo,Activo")] TipoProducto tipoProducto)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +61,6 @@ namespace MiFragancia.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID", tipoProducto.ProductoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", tipoProducto.UsuarioId);
             return View(tipoProducto);
         }
 
@@ -84,8 +77,6 @@ namespace MiFragancia.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID", tipoProducto.ProductoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", tipoProducto.UsuarioId);
             return View(tipoProducto);
         }
 
@@ -94,7 +85,7 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,UsuarioId,ProductoId,Cantidad,Precio")] TipoProducto tipoProducto)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Tipo,Activo")] TipoProducto tipoProducto)
         {
             if (id != tipoProducto.ID)
             {
@@ -121,8 +112,6 @@ namespace MiFragancia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID", tipoProducto.ProductoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", tipoProducto.UsuarioId);
             return View(tipoProducto);
         }
 
@@ -135,8 +124,6 @@ namespace MiFragancia.Controllers
             }
 
             var tipoProducto = await _context.TipoProducto
-                .Include(t => t.Producto)
-                .Include(t => t.Usuario)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (tipoProducto == null)
             {

@@ -11,15 +11,8 @@ namespace MiFragancia.Models
     {
         [Key]
         public int ID { get; set; }
-        public int UsuarioId { get; set; }
-        [ForeignKey("UsuarioId ")]
-        public virtual UsuarioModel Usuario { get; set; }
-        public int ProductoId { get; set; }
-        [ForeignKey("ProductoId ")]
-        public virtual Producto Producto { get; set; }
-        
-        public int Cantidad { get; set; }
-        public float Precio { get; set; }
+        public string Tipo { get; set; }
+        public bool Activo { get; set; }
 
         public TipoProducto()
         {
