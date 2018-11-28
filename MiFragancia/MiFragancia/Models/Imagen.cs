@@ -11,6 +11,6 @@ namespace MiFragancia.Models
         [Key]
         public int ID { get; set; }
         public byte[] Imagen { get; set; }
-        public char Activo { get; set; }
+        public bool Activo { get; set; }
     }
 }

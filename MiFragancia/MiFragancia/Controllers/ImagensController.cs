@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +48,7 @@ namespace MiFragancia.Controllers
         {
             return View();
         }
-
+      
         // POST: Imagens/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -55,6 +56,7 @@ namespace MiFragancia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Imagen,Activo")] Imagens imagens)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(imagens);
