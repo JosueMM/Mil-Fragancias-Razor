@@ -144,7 +144,7 @@ using MiFragancia.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(901, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "761b33bb00ae4b88953dd72d64ea97a8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0bcc2840eea4ffea908934f0292ff59", async() => {
                 BeginContext(947, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -179,7 +179,7 @@ using MiFragancia.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(963, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14a96379dfe84b2690ed28279750238b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f75b55dc9a1042aebe3d0e7270ca5e48", async() => {
                 BeginContext(985, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

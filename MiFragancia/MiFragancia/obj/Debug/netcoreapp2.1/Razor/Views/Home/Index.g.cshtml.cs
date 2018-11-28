@@ -78,7 +78,7 @@ using MiFragancia.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(55, 1233, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "295d8b53c0974cea8dcb0dbff8ba4ee7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f2e92601b2d4af4b4c35de56736d8a8", async() => {
                 BeginContext(76, 320, true);
                 WriteLiteral(@"
     <div class=""container"">
@@ -92,7 +92,7 @@ using MiFragancia.Models;
                 ");
                 EndContext();
                 BeginContext(396, 767, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "703162dc64a24389be9ab1b40eef475d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5edabbb5b36c4bbab3c8c57843f5c8ec", async() => {
                     BeginContext(451, 79, true);
                     WriteLiteral("\r\n                    <div class=\"form-group\">\r\n                        <label>");
                     EndContext();
@@ -107,7 +107,7 @@ using MiFragancia.Models;
                     WriteLiteral("</label>\r\n                        ");
                     EndContext();
                     BeginContext(582, 91, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "899daca3cde943938620e7e701cbe25d", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e42c23af7aa447d69c7c7843a2bb4902", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -133,7 +133,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     WriteLiteral("\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        ");
                     EndContext();
                     BeginContext(773, 98, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b06f91e2c644a04962e6c9db188ecd2", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7eba889b9bf94115859a1ce5969ff851", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -159,7 +159,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     WriteLiteral("\r\n                    </div>\r\n                    <div class=\"forgot\">\r\n                        \r\n                    </div>\r\n                    ");
                     EndContext();
                     BeginContext(1017, 121, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f238d1565a744948c06627dcf4410fd", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb150761d42d41e3803ece0b9425ce6f", async() => {
                         BeginContext(1124, 5, true);
                         WriteLiteral("Login");
                         EndContext();
