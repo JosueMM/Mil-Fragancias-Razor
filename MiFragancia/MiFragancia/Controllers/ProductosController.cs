@@ -13,12 +13,17 @@ namespace MiFragancia.Controllers
     {
         private readonly FraganciaContext _context;
         public IList<Producto> carrito = new List<Producto>();
+    
         public IList<Producto> select;
 
         public ProductosController(FraganciaContext context)
         {
             _context = context;
-            
+            if(Log.Factura == null)
+                {
+                Log.Factura = new List<Producto>();
+            }
+
         }
 
         [HttpPost]
@@ -64,29 +69,35 @@ namespace MiFragancia.Controllers
             var fraganciaContext = _context.Producto.Include(p => p.Imagen).Include(p => p.Tipo);
             carrito = await fraganciaContext.ToListAsync();
 
-            for (int i = 0; i < carrito.Count; i++)
+            for (int i = 0; i < Log.carrito.Count; i++)
             {
-                for (int j = 0; j < Log.carrito.Count; j++)
+                for (int j = 0; j < carrito.Count; j++)
                 {
-                    if (Log.carrito[j].ID == carrito[i].ID)
+                    if (Log.carrito[i].ID == carrito[j].ID)
                     {
 
-                        carrito[i].Cantidad -= 1;
-                        _context.Update(carrito[i]);
+                        carrito[j].Cantidad -= 1;
+                        _context.Update(carrito[j]);
                         await _context.SaveChangesAsync();
-                        
-
-                        
-                            
-
+                        facturar(carrito[j]);
 
                     }
                 }
                 
+                   
+                
+                
 
             }
+            Log.carrito = new List<Producto>();
+            Log.total = Log.total + Log.cantidadProd;
             Log.cantidadProd = 0;
             return RedirectToAction("Index", "Productos");
+        }
+
+        public void facturar(Producto p)
+        {
+            Log.Factura.Add(p);
         }
 
 
