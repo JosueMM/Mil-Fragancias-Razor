@@ -12,31 +12,110 @@ namespace MiFragancia.Controllers
     public class ProductosController : Controller
     {
         private readonly FraganciaContext _context;
-        public IList<Producto> carrito;
+        public IList<Producto> carrito = new List<Producto>();
         public IList<Producto> select;
 
         public ProductosController(FraganciaContext context)
         {
             _context = context;
+            
         }
 
-        public async Task AddCarritoAsync(int id)
+        [HttpPost]
+        public async Task<IActionResult> AddCarritoAsync(int id , int cantidad)
         {
-         
+            
             var producto = await _context.Producto
                 .Include(p => p.Imagen)
                 .Include(p => p.Tipo)
                 .FirstOrDefaultAsync(m => m.ID == id);
 
+            if (producto.Cantidad >= cantidad)
+            {
+                if (Log.carrito == null)
+                {
+                    Log.carrito = new List<Producto>();
+                }
                 carrito.Add(producto);
+                Log.cantidadProd += cantidad * producto.Precio;
+
+                for (int i = 0; i < cantidad; i++)
+                {
+                    Log.carrito.Add(producto);
+                }
+               
+                Log.Messajes = "Producto Añadido al carro";
+                return RedirectToAction("Index", "Productos");
+
+            }
+            else
+            {
+                Log.Messajes = "Cantidad no disponible";
+                return RedirectToAction("Index", "Productos");
+
+            }
+            
+  
+        }
+
+        public async Task<IActionResult> Comprar(int prodRemove)
+        {
+
+            var fraganciaContext = _context.Producto.Include(p => p.Imagen).Include(p => p.Tipo);
+            carrito = await fraganciaContext.ToListAsync();
+
+            for (int i = 0; i < carrito.Count; i++)
+            {
+                for (int j = 0; j < Log.carrito.Count; j++)
+                {
+                    if (Log.carrito[j].ID == carrito[i].ID)
+                    {
+
+                        carrito[i].Cantidad -= 1;
+                        _context.Update(carrito[i]);
+                        await _context.SaveChangesAsync();
+                        
+
+                        
+                            
+
+
+                    }
+                }
+                
+
+            }
+            Log.cantidadProd = 0;
+            return RedirectToAction("Index", "Productos");
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Remove(int prodRemove)
+        {
+            for (int i = 0; i < Log.carrito.Count; i++)
+            {
+                if (Log.carrito[i].ID == prodRemove)
+                {
+                    Log.cantidadProd -= Log.carrito[i].Precio;
+                    Log.Messajes = "Se ha eliminado el articulo " + Log.carrito[i].Nombre + " del carrito";
+                    Log.carrito.Remove(Log.carrito[i]); 
+                }
+                
+            }
+            return RedirectToAction("Index", "Productos");
         }
 
         // GET: Productos
         public async Task<IActionResult> Index()
         {
+         
             var fraganciaContext = _context.Producto.Include(p => p.Imagen).Include(p => p.Tipo);
             return View(await fraganciaContext.ToListAsync());
         }
+
+     
 
         // GET: Productos/Details/5
         public async Task<IActionResult> Details(int? id)

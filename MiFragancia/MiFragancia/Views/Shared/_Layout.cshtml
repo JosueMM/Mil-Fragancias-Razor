@@ -17,6 +17,8 @@
     </environment>
 </head>
 <body>
+    @if (Log.isSingin)
+    {
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,18 +28,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MiFragancia</a>
+                <a asp-area="" asp-controller="Productos" asp-action="Index" class="navbar-brand">Mil Fragancia</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Login</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Tienda</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Productos" asp-action="Index">Tienda</a></li>
+                    <li><a asp-area="" asp-controller="Imagens" asp-action="Index">Imagenes</a></li>
+                    @(Log.User.Admin){
                     <li><a asp-area="" asp-controller="UsuarioModels" asp-action="Index">Usuarios</a></li>
+                    }
+
                 </ul>
             </div>
         </div>
     </nav>
+    }
+    
 
     <partial name="_CookieConsentPartial" />
 

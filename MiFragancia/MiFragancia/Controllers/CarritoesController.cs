@@ -21,7 +21,7 @@ namespace MiFragancia.Controllers
         // GET: Carritoes
         public async Task<IActionResult> Index()
         {
-            var fraganciaContext = _context.Carrito.Include(c => c.TipoProducto).Include(c => c.Usuario);
+            var fraganciaContext = _context.Carrito.Include(c => c.Producto).Include(c => c.Usuario);
             return View(await fraganciaContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace MiFragancia.Controllers
             }
 
             var carrito = await _context.Carrito
-                .Include(c => c.TipoProducto)
+                .Include(c => c.Producto)
                 .Include(c => c.Usuario)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (carrito == null)
@@ -48,7 +48,7 @@ namespace MiFragancia.Controllers
         // GET: Carritoes/Create
         public IActionResult Create()
         {
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID");
+            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID");
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID");
             return View();
         }
@@ -58,7 +58,7 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UsuarioId,TipoProductoId,Cantidad,Precio")] Carrito carrito)
+        public async Task<IActionResult> Create([Bind("ID,UsuarioId,ProductoId,Cantidad,Precio")] Carrito carrito)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace MiFragancia.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", carrito.TipoProductoId);
+            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID", carrito.ProductoId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", carrito.UsuarioId);
             return View(carrito);
         }
@@ -84,7 +84,7 @@ namespace MiFragancia.Controllers
             {
                 return NotFound();
             }
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", carrito.TipoProductoId);
+            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID", carrito.ProductoId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", carrito.UsuarioId);
             return View(carrito);
         }
@@ -94,7 +94,7 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,UsuarioId,TipoProductoId,Cantidad,Precio")] Carrito carrito)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,UsuarioId,ProductoId,Cantidad,Precio")] Carrito carrito)
         {
             if (id != carrito.ID)
             {
@@ -121,7 +121,7 @@ namespace MiFragancia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", carrito.TipoProductoId);
+            ViewData["ProductoId"] = new SelectList(_context.Producto, "ID", "ID", carrito.ProductoId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", carrito.UsuarioId);
             return View(carrito);
         }
@@ -135,7 +135,7 @@ namespace MiFragancia.Controllers
             }
 
             var carrito = await _context.Carrito
-                .Include(c => c.TipoProducto)
+                .Include(c => c.Producto)
                 .Include(c => c.Usuario)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (carrito == null)
