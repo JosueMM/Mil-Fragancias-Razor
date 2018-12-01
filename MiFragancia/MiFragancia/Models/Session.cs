@@ -13,5 +13,7 @@ namespace MiFragancia.Models
         public static IList<Producto> carrito { get; set; }
         public static double cantidadProd { get; set; }
         public static string Messajes { get; set; }
+        public static IList<Producto> Factura { get; set; }
+        public static double total { get; set; }
     }
 }
