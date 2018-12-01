@@ -50,8 +50,12 @@ namespace MiFragancia.Controllers
                 return RedirectToAction("Login", "UsuarioModels");
                 
             }
-            ViewData["alert"] = "Credenciales correctos";
+           
 
+            ViewData["alert"] = "Credenciales correctos";
+            Log.isSingin = true;
+            Log.User = usuario;
+            Log.isAdmin = usuario.Admin;
             return RedirectToAction("Index", "Productos"); 
   
 
@@ -92,7 +96,8 @@ namespace MiFragancia.Controllers
             {
                 _context.Add(usuarioModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+               
+                return RedirectToAction(nameof(Login));
             }
             return View(usuarioModel);
         }
