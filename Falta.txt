@@ -1,0 +1,14 @@
+Falta
+
+1-Imagenes (problema de bytes).
+1.1-cargar imagenes en los productos (cambiar imagen default por la del producto)
+(@item.imagen)
+
+2-Generar Factura de la compra del carrito (Modal)
+
+Revisar detalles.
+
+*** Ya hice confirmacion de si esta logeado o si es admin tampoco se  puede entrar 
+por ruta si no esta logeado.
+
+Creo que solo esas 2 cosas faltan 
