@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ruta)
+                @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @Html.DisplayNameFor(model => model.ImagePath)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Activo)
@@ -28,10 +28,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Ruta)
+                @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                <a href="@Html.DisplayFor(modelItem => item.ImagePath)">
+                    <img src="@Html.DisplayFor(modelItem => item.ImagePath)" />
+                </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Activo)

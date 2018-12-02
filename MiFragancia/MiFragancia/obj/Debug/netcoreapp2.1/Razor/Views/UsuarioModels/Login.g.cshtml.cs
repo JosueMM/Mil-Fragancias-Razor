@@ -79,7 +79,7 @@ using MiFragancia.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(106, 1358, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6147724866de4e259c759f68c208f5dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb28669ffa314cdaac3a086bc5f7ddc8", async() => {
                 BeginContext(127, 320, true);
                 WriteLiteral(@"
     <div class=""container"">
@@ -93,7 +93,7 @@ using MiFragancia.Models;
                 ");
                 EndContext();
                 BeginContext(447, 805, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7c6ff31b9ed4e10bb021ba8cdaa61f2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13057f2fbbd64254b85475f140ed760c", async() => {
                     BeginContext(497, 153, true);
                     WriteLiteral("\r\n                    <span id=\"reauth-email\" class=\"reauth-email\"></span>\r\n                    <div class=\"form-group\">\r\n                        <label>");
                     EndContext();
@@ -117,7 +117,7 @@ using MiFragancia.Models;
                     ");
                     EndContext();
                     BeginContext(1103, 124, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "654113b19b1e489fa4b8e5bd7c810378", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a5d50f0026c408c95fb235703e9016d", async() => {
                         BeginContext(1213, 5, true);
                         WriteLiteral("Login");
                         EndContext();
@@ -166,7 +166,7 @@ using MiFragancia.Models;
                 WriteLiteral("\r\n                ");
                 EndContext();
                 BeginContext(1270, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b0a6c0b241e489cb1f71d4cf375f043", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e943eb8cb02d48c086efa7a7a4961fb7", async() => {
                     BeginContext(1324, 11, true);
                     WriteLiteral("Registrarse");
                     EndContext();

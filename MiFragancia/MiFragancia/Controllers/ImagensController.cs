@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.EntityFrameworkCore;
 using MiFragancia.Models;
+
 
 namespace MiFragancia.Controllers
 {
@@ -42,6 +48,30 @@ namespace MiFragancia.Controllers
             return View(imagens);
         }
 
+        public async Task<IActionResult> Add(Imagens imagenModel)
+        {
+
+            string filename = Path.GetFileNameWithoutExtension(imagenModel.imageFile.FileName);
+
+            string etension = Path.GetExtension(imagenModel.imageFile.FileName);
+            filename = filename + DateTime.Now.ToString("yymmssfff") + etension;
+            imagenModel.ImagePath = "~/Images/" + filename;
+            filename = Path.Combine(ApplicationEnvironment.ApplicationBasePath+ "Images", filename);
+            using (var fileStream = new FileStream(filename, FileMode.Create))
+            {
+                await imagenModel.imageFile.CopyToAsync(fileStream);
+            }
+
+            Log.imagen = filename;
+            Log.path = imagenModel.imageFile;
+            Log.imagen = Log.imagen.Replace('\\', '/');
+
+            return RedirectToAction("Create", "Imagens");
+        }
+
+      
+
+
         // GET: Imagens/Create
         public IActionResult Create()
         {
@@ -53,10 +83,11 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Ruta,Nombre,Activo")] Imagens imagens)
+        public async Task<IActionResult> Create([Bind("ID,Nombre,ImagePath,Activo")] Imagens imagens)
         {
             if (ModelState.IsValid)
             {
+                imagens.imageFile = Log.path;
                 _context.Add(imagens);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -85,7 +116,7 @@ namespace MiFragancia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Ruta,Nombre,Activo")] Imagens imagens)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,ImagePath,Activo")] Imagens imagens)
         {
             if (id != imagens.ID)
             {
