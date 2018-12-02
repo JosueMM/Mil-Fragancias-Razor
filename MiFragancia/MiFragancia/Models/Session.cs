@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,5 +16,7 @@ namespace MiFragancia.Models
         public static string Messajes { get; set; }
         public static IList<Producto> Factura { get; set; }
         public static double total { get; set; }
+        public static string imagen { get; set; }
+        public static IFormFile path { get; set; }
     }
 }
