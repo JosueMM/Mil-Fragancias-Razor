@@ -123,10 +123,20 @@ namespace MiFragancia.Controllers
         {
          
             var fraganciaContext = _context.Producto.Include(p => p.Imagen).Include(p => p.Tipo);
+
             return View(await fraganciaContext.ToListAsync());
         }
 
-     
+        [HttpPost]
+        public async Task<Imagens> getImagen(int id)
+        {
+            var imagens = await _context.Imagen
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+            return imagens;
+        }
+
+
 
         // GET: Productos/Details/5
         public async Task<IActionResult> Details(int? id)

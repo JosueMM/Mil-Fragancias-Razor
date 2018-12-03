@@ -30,6 +30,15 @@ namespace MiFragancia.Controllers
             return View(await _context.Imagen.ToListAsync());
         }
 
+        [HttpPost]
+        public async Task<Imagens> getImagen(int id)
+        {
+            var imagens = await _context.Imagen
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+            return imagens; 
+        }
+
         // GET: Imagens/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -55,14 +64,15 @@ namespace MiFragancia.Controllers
 
             string etension = Path.GetExtension(imagenModel.imageFile.FileName);
             filename = filename + DateTime.Now.ToString("yymmssfff") + etension;
-            imagenModel.ImagePath = "~/Images/" + filename;
-            filename = Path.Combine(ApplicationEnvironment.ApplicationBasePath+ "Images", filename);
+            Log.imagen = filename;
+            imagenModel.ImagePath = "~/images/" + filename;
+            filename = Path.Combine("wwwroot/images", filename);
             using (var fileStream = new FileStream(filename, FileMode.Create))
             {
                 await imagenModel.imageFile.CopyToAsync(fileStream);
             }
 
-            Log.imagen = filename;
+            
             Log.path = imagenModel.imageFile;
             Log.imagen = Log.imagen.Replace('\\', '/');
 

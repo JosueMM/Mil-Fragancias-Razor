@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                <a href="@Html.DisplayFor(modelItem => item.ImagePath)">
-                    <img src="@Html.DisplayFor(modelItem => item.ImagePath)" />
-                </a>
+                
+                    <img src="~/images/@item.ImagePath" width="500" height="500"/>
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Activo)
