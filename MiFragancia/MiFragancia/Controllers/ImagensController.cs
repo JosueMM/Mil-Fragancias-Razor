@@ -56,7 +56,8 @@ namespace MiFragancia.Controllers
             string etension = Path.GetExtension(imagenModel.imageFile.FileName);
             filename = filename + DateTime.Now.ToString("yymmssfff") + etension;
             imagenModel.ImagePath = "~/Images/" + filename;
-            filename = Path.Combine(ApplicationEnvironment.ApplicationBasePath+ "Images", filename);
+            
+            filename = Path.Combine("Images", filename);
             using (var fileStream = new FileStream(filename, FileMode.Create))
             {
                 await imagenModel.imageFile.CopyToAsync(fileStream);

@@ -2,8 +2,8 @@ MiFragancia
 
 CREATE TABLE [dbo].[Carrito](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[idProducto] [int] NOT NULL,
-	[idUsuario] [int] NOT NULL,
+	[productoId] [int] NOT NULL,
+	[usuarioId] [int] NOT NULL,
 	[cantidad] [int] NOT NULL,
 	[precio] [float] NOT NULL,
  CONSTRAINT [PK_Carrito] PRIMARY KEY CLUSTERED 
@@ -15,8 +15,10 @@ CREATE TABLE [dbo].[Carrito](
 
 CREATE TABLE [dbo].[Imagen](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[imagen] [image] NOT NULL,
-	[activo] [char](1) NOT NULL,
+	[imagePath] [nvarchar](50) NOT NULL,
+        [activo] [bit] NOT NULL,
+	[nombre] [nvarchar](50) NOT NULL,
+	[imageFile] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Imagen] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -28,9 +30,9 @@ CREATE TABLE [dbo].[Producto](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
 	[cantidad] [int] NOT NULL,
-	[idTipoProd] [int] NOT NULL,
+	[tipoProductoId] [int] NOT NULL,
 	[precio] [float] NOT NULL,
-	[idImagen] [int] NOT NULL,
+	[imagenId] [int] NOT NULL,
 	[descripcion] [nvarchar](500) NULL,
 	[activo] [bit] NOT NULL,
  CONSTRAINT [PK_Producto] PRIMARY KEY CLUSTERED 
