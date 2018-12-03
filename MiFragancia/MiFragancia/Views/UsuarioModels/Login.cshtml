@@ -8,34 +8,39 @@
 }
 
 
-<body id="LoginForm">
-    <div class="container">
-        <h1 class="form-heading"></h1>
-        <div class="login-form">
-            <div class="main-div">
-                <div class="panel">
-                    <h2>Login</h2>
-                    <p>Mi Fragancia, El olor de los sueños! </p>
-                </div>
-                <form id="Login" method="POST" asp-action="Login">
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <div class="form-group">
-                        <label>@ViewData["alert"]</label>
-                        <input name="email"  class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input name="pass" class="form-control"  type="password" id="inputPassword" placeholder="Contraseña">
-                    </div>
-                    <div class="forgot">
 
+<body>
+    <div id="login">
+
+       
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="Login" method="POST" asp-action="Login">
+
+                            <h3 class="text-center text-info">Login</h3>
+                            <label class="text-center text-info">@ViewData["alert"]</label>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="email" id="inputEmail" placeholder="Email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input name="pass" type="password" id="inputPassword" placeholder="Contraseña" class="form-control">
+                            </div>
+                            <div class="form-group">
+
+                                <input type="submit" name="submit" asp-controller="UsuarioModels" asp-action="Login" class="btn btn-info btn-md" value="submit"><br />
+                                <a asp-controller="UsuarioModels" asp-action="Create" class="text-info">Registrarse</a>
+                            </div>
+                            <div id="register-link" class="text-right">
+                                
+                            </div>
+                        </form>
                     </div>
-                    <button type="submit" value="Login" asp-controller="UsuarioModels" asp-action="Login" class="btn btn-primary">Login</button>
-                </form>
-                <a asp-controller="UsuarioModels" asp-action="Create">Registrarse</a>
+                </div>
             </div>
-            <p class="botto-text"> Designed by MiFragancia</p>
         </div>
     </div>
-
-
 </body>
