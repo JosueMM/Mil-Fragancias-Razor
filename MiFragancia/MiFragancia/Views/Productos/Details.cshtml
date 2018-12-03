@@ -46,13 +46,14 @@
                 @Html.DisplayNameFor(model => model.Tipo)
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Tipo.ID)
+                @Html.DisplayFor(model => model.Tipo.Tipo)
             </dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Imagen)
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Imagen.ID)
+                <img  src="~/images/@Html.DisplayFor(model => model.Imagen.ImagePath)"/>
+                
             </dd>
         </dl>
     </div>

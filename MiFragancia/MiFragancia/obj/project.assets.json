@@ -12537,11 +12537,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Razor\\Mil-Fragancias-Razor\\MiFragancia\\MiFragancia\\MiFragancia.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Raazor2\\MiFragancia\\MiFragancia\\MiFragancia.csproj",
       "projectName": "MiFragancia",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\Razor\\Mil-Fragancias-Razor\\MiFragancia\\MiFragancia\\MiFragancia.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Raazor2\\MiFragancia\\MiFragancia\\MiFragancia.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\Razor\\Mil-Fragancias-Razor\\MiFragancia\\MiFragancia\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Raazor2\\MiFragancia\\MiFragancia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

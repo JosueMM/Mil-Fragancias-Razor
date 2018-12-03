@@ -123,10 +123,20 @@ namespace MiFragancia.Controllers
         {
          
             var fraganciaContext = _context.Producto.Include(p => p.Imagen).Include(p => p.Tipo);
+
             return View(await fraganciaContext.ToListAsync());
         }
 
-     
+        [HttpPost]
+        public async Task<Imagens> getImagen(int id)
+        {
+            var imagens = await _context.Imagen
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+            return imagens;
+        }
+
+
 
         // GET: Productos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -149,10 +159,19 @@ namespace MiFragancia.Controllers
         }
 
         // GET: Productos/Create
-        public IActionResult Create()
+        public IActionResult Create(object selectedDepartment = null , object selectedTipos = null)
         {
-            ViewData["ImagenId"] = new SelectList(_context.Imagen, "ID", "ID");
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID");
+
+            var imagenes = from d in _context.Imagen
+                                   orderby d.Nombre // Sort by name.
+                                   select d;
+
+            var tipos = from d in _context.TipoProducto
+                           orderby d.Tipo // Sort by name.
+                           select d;
+
+            ViewBag.ImagenId= new SelectList(imagenes.AsNoTracking(),"ID", "Nombre", selectedDepartment);
+            ViewBag.TipoProductoId = new SelectList(tipos.AsNoTracking(), "ID", "Tipo", selectedTipos);
             return View();
         }
 
@@ -169,8 +188,19 @@ namespace MiFragancia.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ImagenId"] = new SelectList(_context.Imagen, "ID", "ID", producto.ImagenId);
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", producto.TipoProductoId);
+
+            var imagenes = from d in _context.Imagen
+                           orderby d.Nombre // Sort by name.
+                           select d;
+
+            var tipos = from d in _context.TipoProducto
+                        orderby d.Tipo // Sort by name.
+                        select d;
+
+            ViewBag.ImagenId = new SelectList(imagenes.AsNoTracking(), "ID", "Nombre", producto.ImagenId);
+            ViewBag.TipoProductoId = new SelectList(tipos.AsNoTracking(), "ID", "Tipo", producto.TipoProductoId);
+
+          
             return View(producto);
         }
 
@@ -187,8 +217,16 @@ namespace MiFragancia.Controllers
             {
                 return NotFound();
             }
-            ViewData["ImagenId"] = new SelectList(_context.Imagen, "ID", "ID", producto.ImagenId);
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", producto.TipoProductoId);
+            var imagenes = from d in _context.Imagen
+                           orderby d.Nombre // Sort by name.
+                           select d;
+
+            var tipos = from d in _context.TipoProducto
+                        orderby d.Tipo // Sort by name.
+                        select d;
+
+            ViewBag.ImagenId = new SelectList(imagenes.AsNoTracking(), "ID", "Nombre", producto.ImagenId);
+            ViewBag.TipoProductoId = new SelectList(tipos.AsNoTracking(), "ID", "Tipo", producto.TipoProductoId);
             return View(producto);
         }
 
@@ -224,8 +262,16 @@ namespace MiFragancia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ImagenId"] = new SelectList(_context.Imagen, "ID", "ID", producto.ImagenId);
-            ViewData["TipoProductoId"] = new SelectList(_context.TipoProducto, "ID", "ID", producto.TipoProductoId);
+            var imagenes = from d in _context.Imagen
+                           orderby d.Nombre // Sort by name.
+                           select d;
+
+            var tipos = from d in _context.TipoProducto
+                        orderby d.Tipo // Sort by name.
+                        select d;
+
+            ViewBag.ImagenId = new SelectList(imagenes.AsNoTracking(), "ID", "Nombre", producto.ImagenId);
+            ViewBag.TipoProductoId = new SelectList(tipos.AsNoTracking(), "ID", "Tipo", producto.TipoProductoId);
             return View(producto);
         }
 
